@@ -14,6 +14,8 @@ import { ListBookComponent } from './view/books/list-book/list-book.component';
 
 import { RestService } from './service/rest/rest.service';
 import { LibraryService } from './service/library/library.service';
+import { HeaderComponent } from './component/header/header.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 
 export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestOptions, router: Router) {}
@@ -25,7 +27,9 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     AddEditBookComponent,
     AddEditAuthorComponent,
     ListAuthorComponent,
-    ListBookComponent
+    ListBookComponent,
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

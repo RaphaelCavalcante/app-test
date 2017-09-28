@@ -1,3 +1,34 @@
-<p>
-  list-book works!
-</p>
+<section class="content-header">
+    <h1>Livros
+      <small>Listar</small>
+    </h1>
+  </section>
+  
+  <section class="content">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Livros Cadastrados</h3>
+      </div>
+      <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Editar</th>
+              <th>Excluir</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of books">
+              <th>{{ item.id }}</th>
+              <td>{{ item.title }}</td>
+              <td><a (click)="editBook(item)" ><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
+              <td><a ><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <a (click)="newBook()" class="btn btn-primary">Cadastrar Livro</a>
+  </section>

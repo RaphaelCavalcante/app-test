@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
-import { LibraryService } from '../../../service/library/library.service';
+import { AuthorService } from '../../../service/author/author.service';
 import { Author } from '../../../model/author';
 
 @Component({
@@ -12,7 +13,8 @@ export class ListAuthorComponent implements OnInit {
 
   authors: Author[] = new Array();
 
-  constructor(private serviceAuthor: LibraryService) { }
+  constructor(private serviceAuthor: AuthorService,
+  private router: Router) { }
 
   ngOnInit() {
     this.getAuthorsLibrary();
@@ -26,4 +28,22 @@ export class ListAuthorComponent implements OnInit {
       },
       error => <any>error);
   }
+
+  deleteAuthor(authorId: number) {
+    this.serviceAuthor.deleteAuthor(authorId.toString()).subscribe(
+      success => {
+        this.getAuthorsLibrary();
+      },
+      error => <any>error
+    );
+  }
+
+  editAuthor(authors: Author) {
+    this.router.navigate(['listAuthor/author', authors.id.toString()]);
+  }
+
+  newAuthor(): void {
+    this.router.navigate(['listAuthor/author']);
+  }
+
 }

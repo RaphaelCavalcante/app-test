@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, XHRBackend, RequestOptions, HttpModule, ConnectionBackend } from '@angular/http';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.router';
@@ -11,11 +12,13 @@ import { AddEditBookComponent } from './view/books/add-edit-book/add-edit-book.c
 import { AddEditAuthorComponent } from './view/author/add-edit-author/add-edit-author.component';
 import { ListAuthorComponent } from './view/author/list-author/list-author.component';
 import { ListBookComponent } from './view/books/list-book/list-book.component';
+import { HeaderComponent } from './component/header/header.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 import { RestService } from './service/rest/rest.service';
 import { LibraryService } from './service/library/library.service';
-import { HeaderComponent } from './component/header/header.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
+import { AuthorService } from './service/author/author.service';
+import { BookService } from './service/book/book.service';
 
 
 export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestOptions, router: Router) {}
@@ -34,11 +37,14 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
   imports: [
     BrowserModule,
     HttpModule,
-    routing
+    routing,
+    FormsModule
   ],
   providers: [
     RestService,
-    LibraryService
+    LibraryService,
+    AuthorService,
+    BookService
   ],
   bootstrap: [AppComponent]
 })

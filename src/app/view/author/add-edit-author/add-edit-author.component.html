@@ -1,3 +1,65 @@
-<p>
-  add-edit-author works!
-</p>
+<!-- Cadastro -->
+<div *ngIf="!edit">
+  <section class="content-header">
+    <h1>Autores
+      <small>Cadastrar</small>
+    </h1>
+  </section>
+
+  <section class="content">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="direction" class="col-sm-2 control-label">Primeiro Nome</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" maxlength="100" id="firstName" name="firstName" [(ngModel)]="authors.firstName" #firstName="ngModel"
+            required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="direction" class="col-sm-2 control-label">Segundo Nome</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" maxlength="100" id="lastName" name="lastName" [(ngModel)]="authors.lastName" #lastName="ngModel"
+            required>
+        </div>
+      </div>
+    </form>
+    <a (click)="backListAuthor()" class="btn btn-primary">Voltar</a>
+    <a (click)="save()" class="btn btn-primary">Salvar</a>
+
+  </section>
+</div>
+
+<!-- Edição -->
+<div *ngIf="edit">
+  <section class="content-header">
+    <h1>Autores
+      <small>Editar</small>
+    </h1>
+  </section>
+
+  <section class="content">
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <label for="direction" class="col-sm-2 control-label">Primeiro Nome</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" maxlength="100" id="firstName" name="firstName" [(ngModel)]="authors.firstName" #firstName="ngModel"
+            required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="direction" class="col-sm-2 control-label">Segundo Nome</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" maxlength="100" id="lastName" name="lastName" [(ngModel)]="authors.lastName" #lastName="ngModel"
+            required>
+        </div>
+      </div>
+
+    </form>
+
+    <a (click)="backListAuthor()" class="btn btn-primary">Cancelar</a>
+    <a (click)="saveEdit()" class="btn btn-primary">Salvar</a>
+
+  </section>
+</div>

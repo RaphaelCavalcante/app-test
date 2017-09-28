@@ -81,7 +81,7 @@ export class RestService {
 
   deleteServiceWithId(url: string, key: string, val: string): Observable<any> {
     return this.http
-      .delete(url + '/?' + key + '=' + val, this.options)
+      .delete(url + '/' + val, this.options)
       .map(this.extractData)
       .catch(this.handleError);
   }

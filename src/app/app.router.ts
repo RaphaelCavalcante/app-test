@@ -15,9 +15,11 @@ const App_Router: Routes = [
 
     { path: 'listAuthor', component: ListAuthorComponent },
     { path: 'listAuthor/author', component: AddEditAuthorComponent },
+    { path: 'listAuthor/author/:id', component: AddEditAuthorComponent },
 
     { path: 'listBook', component: ListBookComponent },
     { path: 'listBook/book', component: AddEditBookComponent },
+    { path: 'listBook/book/:id', component: AddEditBookComponent },
 
 ];
 

@@ -29,6 +29,15 @@ export class ListBookComponent implements OnInit {
       error => <any>error);
   }
 
+  deleteAuthor(bookId: number) {
+    this.bookService.deleteBook(bookId.toString()).subscribe(
+      success => {
+        this.getBook();
+      },
+      error => <any>error
+    );
+  }
+
   editBook(books: Book) {
     this.router.navigate(['listBook/book', books.id.toString()]);
   }

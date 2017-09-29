@@ -8,23 +8,25 @@
 
   <section class="content">
     <form class="form-horizontal">
-      <div class="form-group">
+      <div class="form-group form-align">
         <label for="direction" class="col-sm-2 control-label">Primeiro Nome</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" maxlength="100" id="firstName" name="firstName" [(ngModel)]="authors.firstName" #firstName="ngModel"
-            required>
+          <input type="text" class="form-control form-border" maxlength="100" id="firstName" name="firstName" [(ngModel)]="authors.firstName"
+            #firstName="ngModel" required>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group form-align">
         <label for="direction" class="col-sm-2 control-label">Segundo Nome</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" maxlength="100" id="lastName" name="lastName" [(ngModel)]="authors.lastName" #lastName="ngModel"
-            required>
+          <input type="text" class="form-control form-border" maxlength="100" id="lastName" name="lastName" [(ngModel)]="authors.lastName"
+            #lastName="ngModel" required>
         </div>
       </div>
     </form>
-    <a (click)="backListAuthor()" class="btn btn-primary">Voltar</a>
-    <a (click)="save()" class="btn btn-primary">Salvar</a>
+    <div class="float">
+      <a (click)="backListAuthor()" class="btn btn-primary">Voltar</a>
+      <a (click)="save()" class="btn btn-primary">Salvar</a>
+    </div>
 
   </section>
 </div>
@@ -40,26 +42,25 @@
   <section class="content">
     <form class="form-horizontal">
 
-      <div class="form-group">
+      <div class="form-group form-align">
         <label for="direction" class="col-sm-2 control-label">Primeiro Nome</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" maxlength="100" id="firstName" name="firstName" [(ngModel)]="authors.firstName" #firstName="ngModel"
-            required>
+          <input type="text" class="form-control form-border" maxlength="100" id="firstName" name="firstName" [(ngModel)]="authors.firstName"
+            #firstName="ngModel" required>
         </div>
       </div>
 
-      <div class="form-group">
+      <div class="form-group form-align">
         <label for="direction" class="col-sm-2 control-label">Segundo Nome</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" maxlength="100" id="lastName" name="lastName" [(ngModel)]="authors.lastName" #lastName="ngModel"
-            required>
+          <input type="text" class="form-control form-border" maxlength="100" id="lastName" name="lastName" [(ngModel)]="authors.lastName"
+            #lastName="ngModel" required>
         </div>
       </div>
-
     </form>
-
-    <a (click)="backListAuthor()" class="btn btn-primary">Cancelar</a>
-    <a (click)="saveEdit()" class="btn btn-primary">Salvar</a>
-
+    <div class="float">
+      <a (click)="backListAuthor()" class="btn btn-primary float">Cancelar</a>
+      <a (click)="saveEdit()" class="btn btn-primary float">Salvar</a>
+    </div>
   </section>
 </div>

@@ -14,11 +14,13 @@ import { ListAuthorComponent } from './view/author/list-author/list-author.compo
 import { ListBookComponent } from './view/books/list-book/list-book.component';
 import { HeaderComponent } from './component/header/header.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { PagenateComponent } from './component/pagenate/pagenate.component';
 
 import { RestService } from './service/rest/rest.service';
 import { LibraryService } from './service/library/library.service';
 import { AuthorService } from './service/author/author.service';
 import { BookService } from './service/book/book.service';
+import { PageService } from './service/pagenate/page.service';
 
 
 export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestOptions, router: Router) {}
@@ -32,7 +34,8 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     ListAuthorComponent,
     ListBookComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    PagenateComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     RestService,
     LibraryService,
     AuthorService,
-    BookService
+    BookService,
+    PageService
   ],
   bootstrap: [AppComponent]
 })

@@ -3,18 +3,24 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthorService } from '../../../service/author/author.service';
 import { Author } from '../../../model/author';
+import { PagenateComponent } from '../../../component/pagenate/pagenate.component';
+import { PageService } from '../../../service/pagenate/page.service';
 
 @Component({
   selector: 'app-list-author',
   templateUrl: './list-author.component.html',
   styleUrls: ['./list-author.component.css']
 })
-export class ListAuthorComponent implements OnInit {
+export class ListAuthorComponent extends PagenateComponent implements OnInit {
 
   authors: Author[] = new Array();
 
-  constructor(private serviceAuthor: AuthorService,
-  private router: Router) { }
+  constructor(
+    pagerService: PageService,
+    private serviceAuthor: AuthorService,
+    private router: Router) {
+    super(pagerService);
+  }
 
   ngOnInit() {
     this.getAuthorsLibrary();
@@ -24,6 +30,8 @@ export class ListAuthorComponent implements OnInit {
     this.serviceAuthor.getAuthor().subscribe(
       success => {
         this.authors = success;
+        this.allItems = this.authors;
+        this.setPage(1);
         console.log(this.authors);
       },
       error => <any>error);

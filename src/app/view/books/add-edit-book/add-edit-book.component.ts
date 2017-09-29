@@ -11,16 +11,17 @@ import { Author } from '../../../model/author';
   templateUrl: './add-edit-book.component.html',
   styleUrls: ['./add-edit-book.component.css']
 })
-export class AddEditBookComponent implements OnInit {
+export class AddEditBookComponent implements OnInit  {
 
   books: Book = new Book();
   edit: boolean;
   authors: Author[] = new Array();
 
-  constructor(private serviceAuthor: AuthorService,
+  constructor(
+    private serviceAuthor: AuthorService,
     private serviceBook: BookService,
     private router: Router,
-    private activeRoute: ActivatedRoute) { }
+    private activeRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.getAuthorsforBook();

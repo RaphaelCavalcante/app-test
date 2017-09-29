@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+.float {
+    float: right;
+}
+
+/* tela de feedback de quando não há dado cadastrado */
+.feedback-message {
+    position: relative;
+    left: 40%;
+    right: 50%;
+    margin-top: 10%;
+    color: darkgrey !important;
+}
+
+.feedback-icon {
+    font-size: 200px;
+    position: relative;
+    left: 40%;
+    right: 50%;
+    margin-top: 10%;
+    color: gray;
+}
+
+@media only screen and (max-width: 768px) {
+    .feedback-message {
+        position: relative;
+        left: 30%;
+        right: 40%;
+        margin-top: 10%;
+        color: darkgrey;
+    }
+
+    .feedback-icon {
+        font-size: 200px;
+        position: relative;
+        left: 30%;
+        right: 40%;
+        margin-top: 10%;
+        color: gray;
+    }
+}
+
+/* cursor de mãozinha */
+.stylepage li a {
+    cursor: pointer;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/* dentro do form group */
+.form-align {
+    margin-right: 8% !important;
+    margin-left: 0px !important;
+    margin-bottom: 20px !important;
+}
+
+/* dentro do form control */
+.form-border {
+    border-radius: 4px;
+}

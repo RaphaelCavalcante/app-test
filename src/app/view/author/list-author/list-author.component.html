@@ -1,6 +1,7 @@
 <section class="content-header">
   <h1>Autores
     <small>Lista</small>
+    <a (click)="newAuthor()" class="btn btn-primary float">Cadastrar Autor</a>
   </h1>
 </section>
 
@@ -20,15 +21,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of authors">
+          <tr *ngFor="let item of pagedItems">
             <th>{{ item.id }}</th>
             <td>{{ item.lastName }} {{ item.firstName }}</td>
-            <td><a (click)="editAuthor(item)"><i class="fa fa-pencil" aria-hidden="true"></i></a></td>
-            <td><a (click)="deleteAuthor(item.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+            <td><a (click)="editAuthor(item)"><i class="fa fa-pencil cursor" aria-hidden="true"></i></a></td>
+            <td><a (click)="deleteAuthor(item.id)"><i class="fa fa-trash-o cursor" aria-hidden="true"></i></a></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <a (click)="newAuthor()" class="btn btn-primary">Cadastrar Autor</a>
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination stylepage">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)">Anterior</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+      <a (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)">Próxima</a>
+    </li>
+  </ul>
 </section>

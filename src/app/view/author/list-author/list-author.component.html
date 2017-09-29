@@ -16,10 +16,16 @@
 </div>
 
 <div *ngIf="hasdata">
-  <section class="content">
+  <section class="content padding-content">
     <div class="box">
-      <div class="box-header">
-        <h3 class="box-title">Autores Cadastrados</h3>
+      <div class="box-header row" style="padding-bottom: 0px;">
+        <div class="col-sm-6">
+          <h3 class="box-title">Autores cadastrados</h3>
+        </div>
+        <div class="col-sm-6">
+          <div id="example1_filter" class="dataTables_filter"><label>Pesquisar:<input type="text" class="form-control form-border " [(ngModel)]="authorFilter.lastName" placeholder="autor tal">
+          </label></div>
+        </div>
       </div>
       <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -32,7 +38,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of pagedItems">
+            <tr *ngFor="let item of pagedItems | filterBy: authorFilter">
               <th>{{ item.id }}</th>
               <td>{{ item.lastName }} {{ item.firstName }}</td>
               <td><a (click)="editAuthor(item)"><i class="fa fa-pencil cursor" aria-hidden="true"></i></a></td>

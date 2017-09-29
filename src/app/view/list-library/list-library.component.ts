@@ -7,6 +7,7 @@ import { Book } from '../../model/book';
 import { Library } from '../../model/library';
 import { PagenateComponent } from '../../component/pagenate/pagenate.component';
 import { PageService } from '../../service/pagenate/page.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,10 +20,12 @@ export class ListLibraryComponent extends PagenateComponent implements OnInit {
   authors: Author[] = new Array();
   books: Book[] = new Array();
   library: Library[] = new Array();
+  libraryFilter: any = { title: '' };
 
   hasdata: boolean;
 
   constructor(
+    private router: Router,
     private servicePage: PageService,
     private serviceBook: BookService,
     private serviceAuthor: LibraryService) {
@@ -32,6 +35,10 @@ export class ListLibraryComponent extends PagenateComponent implements OnInit {
   ngOnInit() {
     this.hasdata = false;
     this.libraryAuthor();
+  }
+
+  reload() {
+    this.router.navigate(['listLibrary']);
   }
 
   getBooksAuthors() {

@@ -16,7 +16,7 @@ export class ListAuthorComponent extends PagenateComponent implements OnInit {
 
   authors: Author[] = new Array();
   hasdata: boolean;
-
+  authorFilter: any = { lastName: '' };
 
   constructor(
     pagerService: PageService,

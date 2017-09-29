@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { routing } from './app.router';
 
@@ -45,6 +46,7 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     routing,
     FormsModule,
     BrowserAnimationsModule,
+    Ng2FilterPipeModule,
     SimpleNotificationsModule.forRoot()
   ],
   providers: [

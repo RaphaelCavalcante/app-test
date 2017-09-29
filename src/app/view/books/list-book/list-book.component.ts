@@ -16,6 +16,7 @@ export class ListBookComponent extends PagenateComponent implements OnInit {
 
   books: Book[] = new Array();
   hasdata: boolean;
+  bookFilter: any = { title: '' };
 
   constructor(
     pageService: PageService,

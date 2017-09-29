@@ -12,4 +12,4 @@ Execute `ng serve` para um servidor dev. Navegue para `http: // localhost: 4200 
 
 ## Execute with mobile methode
 
-Digite no terminal "ng serve --host 10.10.3.148", mas no endereço IP do seu computador
+Digite no terminal "ng serve --host 10.10.3.148", mas no endereço IP do seu computador. No navegador do seu smartphone (considere-o conectado a mesma rede que a aplicação), acesse "http://10.10.3.148" (considere que seja o seu IP). 

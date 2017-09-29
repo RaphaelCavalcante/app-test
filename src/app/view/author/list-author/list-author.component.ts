@@ -5,6 +5,7 @@ import { AuthorService } from '../../../service/author/author.service';
 import { Author } from '../../../model/author';
 import { PagenateComponent } from '../../../component/pagenate/pagenate.component';
 import { PageService } from '../../../service/pagenate/page.service';
+import { ToastService } from '../../../service/toast-notification/toast.service';
 
 @Component({
   selector: 'app-list-author',
@@ -16,15 +17,17 @@ export class ListAuthorComponent extends PagenateComponent implements OnInit {
   authors: Author[] = new Array();
   hasdata: boolean;
 
+
   constructor(
     pagerService: PageService,
+    private toastService: ToastService,
     private serviceAuthor: AuthorService,
     private router: Router) {
     super(pagerService);
+    this.hasdata = false;
   }
 
   ngOnInit() {
-    this.hasdata = false;
     this.getAuthorsLibrary();
   }
 
@@ -34,18 +37,19 @@ export class ListAuthorComponent extends PagenateComponent implements OnInit {
         this.authors = success;
         this.allItems = this.authors;
         this.setPage(1);
-        console.log(this.authors);
         this.hasdata = true;
       },
-      error => <any>error);
+      error => this.hasdata = false
+    );
   }
 
   deleteAuthor(authorId: number) {
     this.serviceAuthor.deleteAuthor(authorId.toString()).subscribe(
       success => {
         this.getAuthorsLibrary();
+        this.toastService.toastSuccess();
       },
-      error => <any>error
+      error => this.toastService.toastError()
     );
   }
 

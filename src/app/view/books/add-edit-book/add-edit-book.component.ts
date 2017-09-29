@@ -7,7 +7,6 @@ import { AuthorService } from '../../../service/author/author.service';
 import { Author } from '../../../model/author';
 import { ToastService } from '../../../service/toast-notification/toast.service';
 
-
 @Component({
   selector: 'app-add-edit-book',
   templateUrl: './add-edit-book.component.html',

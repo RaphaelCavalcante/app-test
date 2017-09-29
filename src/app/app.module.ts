@@ -25,7 +25,6 @@ import { BookService } from './service/book/book.service';
 import { PageService } from './service/pagenate/page.service';
 import { ToastService } from './service/toast-notification/toast.service';
 
-
 export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestOptions, router: Router) {}
 
 @NgModule({

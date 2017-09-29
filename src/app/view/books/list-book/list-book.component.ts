@@ -33,6 +33,9 @@ export class ListBookComponent extends PagenateComponent implements OnInit {
   getBook() {
     this.bookService.getBook().subscribe(
       success => {
+        if (success == null) {
+          this.hasdata = false;
+        }
         this.books = success;
         this.allItems = this.books;
         this.setPage(1);
@@ -41,7 +44,7 @@ export class ListBookComponent extends PagenateComponent implements OnInit {
       error => <any>error);
   }
 
-  deleteAuthor(bookId: number) {
+  deleteBook(bookId: number) {
     this.bookService.deleteBook(bookId.toString()).subscribe(
       success => {
         this.getBook();

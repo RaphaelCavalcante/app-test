@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { RestService } from '../rest/rest.service';
 import { Constant } from '../../constant/constants';
 import { Author } from '../../model/author';
+import { Book } from '../../model/book';
 
 @Injectable()
 export class LibraryService extends RestService {
@@ -17,6 +18,11 @@ export class LibraryService extends RestService {
 
   public getAuthor() {
     const currentURL = this.baseUrl.concat('authors');
+    return this.get(currentURL);
+  }
+
+  public getBook() {
+    const currentURL = this.baseUrl.concat('books');
     return this.get(currentURL);
   }
 

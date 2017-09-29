@@ -14,6 +14,7 @@ import { PageService } from '../../../service/pagenate/page.service';
 export class ListAuthorComponent extends PagenateComponent implements OnInit {
 
   authors: Author[] = new Array();
+  hasdata: boolean;
 
   constructor(
     pagerService: PageService,
@@ -23,6 +24,7 @@ export class ListAuthorComponent extends PagenateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.hasdata = false;
     this.getAuthorsLibrary();
   }
 
@@ -33,6 +35,7 @@ export class ListAuthorComponent extends PagenateComponent implements OnInit {
         this.allItems = this.authors;
         this.setPage(1);
         console.log(this.authors);
+        this.hasdata = true;
       },
       error => <any>error);
   }

@@ -5,6 +5,8 @@ import { BookService } from '../../../service/book/book.service';
 import { Book } from '../../../model/book';
 import { AuthorService } from '../../../service/author/author.service';
 import { Author } from '../../../model/author';
+import { ToastService } from '../../../service/toast-notification/toast.service';
+
 
 @Component({
   selector: 'app-add-edit-book',
@@ -19,6 +21,7 @@ export class AddEditBookComponent implements OnInit  {
 
   constructor(
     private serviceAuthor: AuthorService,
+    private toastService: ToastService,
     private serviceBook: BookService,
     private router: Router,
     private activeRoute: ActivatedRoute) {}
@@ -52,7 +55,8 @@ export class AddEditBookComponent implements OnInit  {
         this.books = success;
         this.router.navigate(['listBook']);
       },
-      error => <any>error);
+      error => <any>error
+    );
   }
 
   saveEdit() {
@@ -61,7 +65,8 @@ export class AddEditBookComponent implements OnInit  {
         this.books = success;
         this.router.navigate(['listBook']);
       },
-      error => <any>error);
+      error => <any>error
+    );
   }
 
   backListBook() {

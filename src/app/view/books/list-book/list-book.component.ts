@@ -5,6 +5,7 @@ import { BookService } from '../../../service/book/book.service';
 import { Book } from '../../../model/book';
 import { PagenateComponent } from '../../../component/pagenate/pagenate.component';
 import { PageService } from '../../../service/pagenate/page.service';
+import { ToastService } from '../../../service/toast-notification/toast.service';
 
 @Component({
   selector: 'app-list-book',
@@ -14,15 +15,18 @@ import { PageService } from '../../../service/pagenate/page.service';
 export class ListBookComponent extends PagenateComponent implements OnInit {
 
   books: Book[] = new Array();
+  hasdata: boolean;
 
   constructor(
     pageService: PageService,
+    private toastService: ToastService,
     private bookService: BookService,
     private router: Router) {
       super(pageService);
      }
 
   ngOnInit() {
+    this.hasdata = false;
     this.getBook();
   }
 
@@ -32,6 +36,7 @@ export class ListBookComponent extends PagenateComponent implements OnInit {
         this.books = success;
         this.allItems = this.books;
         this.setPage(1);
+        this.hasdata = true;
       },
       error => <any>error);
   }
@@ -40,8 +45,9 @@ export class ListBookComponent extends PagenateComponent implements OnInit {
     this.bookService.deleteBook(bookId.toString()).subscribe(
       success => {
         this.getBook();
+        this.toastService.toastSuccess();
       },
-      error => <any>error
+      error => this.toastService.toastError()
     );
   }
 

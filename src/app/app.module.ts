@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Http, XHRBackend, RequestOptions, HttpModule, ConnectionBackend } from '@angular/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 import { routing } from './app.router';
 
 import { ListLibraryComponent } from './view/list-library/list-library.component';
@@ -21,6 +23,7 @@ import { LibraryService } from './service/library/library.service';
 import { AuthorService } from './service/author/author.service';
 import { BookService } from './service/book/book.service';
 import { PageService } from './service/pagenate/page.service';
+import { ToastService } from './service/toast-notification/toast.service';
 
 
 export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestOptions, router: Router) {}
@@ -41,14 +44,17 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     BrowserModule,
     HttpModule,
     routing,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [
     RestService,
     LibraryService,
     AuthorService,
     BookService,
-    PageService
+    PageService,
+    ToastService
   ],
   bootstrap: [AppComponent]
 })

@@ -31,14 +31,18 @@
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Autor</th>
+              <th (click)="sort('id')">ID
+                <span class="glyphicon" *ngIf="key =='id'" [ngClass]="{'glyphicon-triangle-top':reverse,'glyphicon-triangle-bottom':!reverse}"></span>
+               </th>
+              <th (click)="sort('name')">Autor
+                <span class="glyphicon" *ngIf="key =='name'" [ngClass]="{'glyphicon-triangle-top':reverse,'glyphicon-triangle-bottom':!reverse}"></span>
+              </th>
               <th>Editar</th>
               <th>Excluir</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of pagedItems | filterBy: authorFilter">
+            <tr *ngFor="let item of pagedItems | orderBy: key : reverse | filterBy: authorFilter">
               <th>{{ item.id }}</th>
               <td>{{ item.lastName }} {{ item.firstName }}</td>
               <td><a (click)="editAuthor(item)"><i class="fa fa-pencil cursor" aria-hidden="true"></i></a></td>

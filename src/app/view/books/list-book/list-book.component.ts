@@ -18,6 +18,13 @@ export class ListBookComponent extends PagenateComponent implements OnInit {
   hasdata: boolean;
   bookFilter: any = { title: '' };
 
+  key = 'name';
+  reverse = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
   constructor(
     pageService: PageService,
     private toastService: ToastService,

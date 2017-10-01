@@ -18,6 +18,13 @@ export class ListAuthorComponent extends PagenateComponent implements OnInit {
   hasdata: boolean;
   authorFilter: any = { lastName: '' };
 
+  key = 'name';
+  reverse = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
   constructor(
     pagerService: PageService,
     private toastService: ToastService,

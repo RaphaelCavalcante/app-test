@@ -5,11 +5,12 @@ import { Http, XHRBackend, RequestOptions, HttpModule, ConnectionBackend } from 
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-import { routing } from './app.router';
 
+import { routing } from './app.router';
+import { AppComponent } from './app.component';
 import { ListLibraryComponent } from './view/list-library/list-library.component';
 import { AddEditBookComponent } from './view/books/add-edit-book/add-edit-book.component';
 import { AddEditAuthorComponent } from './view/author/add-edit-author/add-edit-author.component';
@@ -46,6 +47,7 @@ export function httpFactory(backend: ConnectionBackend, defaultOptions: RequestO
     routing,
     FormsModule,
     BrowserAnimationsModule,
+    Ng2OrderModule,
     Ng2FilterPipeModule,
     SimpleNotificationsModule.forRoot()
   ],

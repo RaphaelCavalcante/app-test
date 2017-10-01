@@ -9,7 +9,7 @@ import { ListAuthorComponent } from './view/author/list-author/list-author.compo
 import { ListBookComponent } from './view/books/list-book/list-book.component';
 
 const App_Router: Routes = [
-    { path: '', component: ListAuthorComponent },
+    { path: '', component: ListLibraryComponent },
 
     { path: 'listLibrary', component: ListLibraryComponent },
 

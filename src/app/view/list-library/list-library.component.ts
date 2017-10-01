@@ -21,8 +21,14 @@ export class ListLibraryComponent extends PagenateComponent implements OnInit {
   books: Book[] = new Array();
   library: Library[] = new Array();
   libraryFilter: any = { title: '' };
-
   hasdata: boolean;
+
+  key = 'name';
+  reverse = false;
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   constructor(
     private router: Router,
@@ -78,6 +84,7 @@ export class ListLibraryComponent extends PagenateComponent implements OnInit {
               this.library.push(libraryItem);
               this.allItems = this.library;
               this.setPage(1);
+              this.hasdata = true;
             });
           },
           error => <any>error);
